@@ -480,7 +480,7 @@ namespace Azure.ApplicationModel.Configuration.Tests
                 {
                     SettingBatch batch = response.Result;
                     resultsReturned += batch.Count;
-                    filter.BatchLink = batch.Link;
+                    filter = batch.NextBatch;
 
                     if (string.IsNullOrEmpty(filter.BatchLink)) break;
                 }

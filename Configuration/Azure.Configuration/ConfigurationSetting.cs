@@ -128,18 +128,21 @@ namespace Azure.ApplicationModel.Configuration
     public class SettingBatch
     {
         readonly ConfigurationSetting[] _settings;
+        readonly string _key;
         readonly string _link;
 
-        public SettingBatch(ConfigurationSetting[] settings, string link)
+        public SettingBatch(ConfigurationSetting[] settings, string link, string key)
         {
             _settings = settings;
             _link = link;
+            _key = key;
         }
 
-        public string Link => _link;
-
         public ConfigurationSetting this[int index] => _settings[index];
+
         public int Count => _settings.Length;
+
+        public SettingBatchFilter NextBatch => new SettingBatchFilter() { Key = _key, BatchLink = _link };
 
         #region nobody wants to see these
         [EditorBrowsable(EditorBrowsableState.Never)]
