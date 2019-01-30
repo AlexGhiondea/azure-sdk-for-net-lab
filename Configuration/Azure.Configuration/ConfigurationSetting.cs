@@ -131,7 +131,7 @@ namespace Azure.ApplicationModel.Configuration
         readonly string _key;
         readonly string _link;
 
-        public SettingBatch(ConfigurationSetting[] settings, string link, string key)
+        internal SettingBatch(ConfigurationSetting[] settings, string link, string key)
         {
             _settings = settings;
             _link = link;
