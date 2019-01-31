@@ -58,7 +58,7 @@ namespace Azure.ApplicationModel.Configuration
         #endregion
     }
 
-    public class SettingBatchFilter : SettingFilter, ICloneable
+    public class SettingBatchFilter : SettingFilter
     {
         /// <summary>
         /// Keys that will be used to filter.
@@ -68,7 +68,7 @@ namespace Azure.ApplicationModel.Configuration
 
         public string BatchLink { get; set; }
 
-        public object Clone()
+        internal SettingBatchFilter Clone()
         {
             return new SettingBatchFilter()
             {

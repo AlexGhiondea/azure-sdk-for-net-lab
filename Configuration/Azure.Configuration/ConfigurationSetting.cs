@@ -146,7 +146,7 @@ namespace Azure.ApplicationModel.Configuration
         {
             get
             {
-                var clonedFilter = (SettingBatchFilter)_filter.Clone();
+                var clonedFilter = _filter.Clone();
                 clonedFilter.BatchLink = _link;
                 return clonedFilter;
             }
