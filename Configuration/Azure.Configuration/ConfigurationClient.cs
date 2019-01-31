@@ -258,7 +258,7 @@ namespace Azure.ApplicationModel.Configuration
 
                 Response response = message.Response;
                 if (response.Status == 200 || response.Status == 206 /* partial */) {
-                    var batch = await ConfigurationServiceSerializer.ParseBatchAsync(response, filter.Key, cancellation);
+                    var batch = await ConfigurationServiceSerializer.ParseBatchAsync(response, filter, cancellation);
                     return new Response<SettingBatch>(response, batch);
                 }
                 else throw new ResponseFailedException(response);
@@ -279,7 +279,7 @@ namespace Azure.ApplicationModel.Configuration
 
                 Response response = message.Response;
                 if (response.Status == 200) {
-                    var batch = await ConfigurationServiceSerializer.ParseBatchAsync(response, string.Empty, cancellation);
+                    var batch = await ConfigurationServiceSerializer.ParseBatchAsync(response, null, cancellation);
                     return new Response<SettingBatch>(response, batch);
                 }
                 else throw new ResponseFailedException(response);
@@ -305,7 +305,7 @@ namespace Azure.ApplicationModel.Configuration
 
                 Response response = message.Response;
                 if (response.Status == 200 || response.Status == 206 /* partial */) {
-                    var batch = await ConfigurationServiceSerializer.ParseBatchAsync(response, filter.Key, cancellation);
+                    var batch = await ConfigurationServiceSerializer.ParseBatchAsync(response, filter, cancellation);
                     return new Response<SettingBatch>(response, batch);
                 }
                 else throw new ResponseFailedException(response);
